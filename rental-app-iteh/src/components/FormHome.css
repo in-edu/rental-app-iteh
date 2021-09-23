@@ -1,0 +1,75 @@
+.wrap {
+    background: -webkit-linear-gradient(left, #0072ff, #00c6ff);
+    padding-top: 7%;
+    padding-bottom: 2%;
+  }
+  .forma {
+    background: #fff;
+    width: 50%;
+  
+    border-radius: 0.5rem;
+  }
+  .form-control {
+    border-radius: 0.7em;
+  }
+  .form1 {
+    padding: 8%;
+  }
+  .forma h2 {
+    color: #0062cc;
+    margin-top: -5%;
+  }
+  .forma button {
+    width: 40%;
+    border: none;
+    border-radius: 1rem;
+    background: #0062cc;
+    padding: 1.5%;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+  }
+  .dugme {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+  .price-number::-webkit-outer-spin-button,
+  .price-number::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  .price-number {
+    -moz-appearance: textfield;
+  }
+  .img-home {
+    text-align: center;
+  }
+  .img-home img {
+    width: 150px;
+    height: 150px;
+    margin-top: -12%;
+    margin-bottom: 6%;
+    border-radius: 50%;
+  }
+  @media screen and (max-width: 992px) {
+    .container {
+      width: 80%;
+      padding-top: 3%;
+    }
+  }
+  @media screen and (max-width: 300px) {
+    .container {
+      padding-top: 3%;
+      width: 80%;
+    }
+  }
+  .row {
+    flex-direction: row;
+  }
+  @media screen and (max-width: 700px) {
+    .row {
+      flex-direction: column;
+    }
+  }
+  

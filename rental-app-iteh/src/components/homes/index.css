@@ -1,0 +1,145 @@
+.quickInfo {
+    display: flex;
+    align-items: flex-end;
+    margin: -50px 20px 0;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 2px 9px 0 rgb(34 12 43 / 10%);
+  }
+  .quickInfoSection {
+    z-index: 3;
+    background-color: #fff;
+    border-radius: 8px;
+    width: 330px;
+  }
+  .quickInfoSection:nth-child(2) {
+    flex: 1 1;
+  }
+  .quickInfoSection:last-child {
+    border-radius: 8px;
+    width: 330px;
+  }
+  .quickInfoNav {
+    background-color: #fff;
+    border-radius: 8px 8px 0 0;
+    height: 50px;
+    overflow: hidden;
+    border-bottom: 0;
+  }
+  .quickInfoNav a {
+    background-color: #01bbbc;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px 8px 0 0;
+  }
+  .quickInfoBody {
+    height: 265px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+  }
+  .quickInfoBody span {
+    text-transform: uppercase;
+    color: #848486;
+    font-weight: 600;
+    margin: 15px;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+  }
+  .quickInfoBody h3 {
+    font-size: 32px;
+    line-height: 40px;
+  }
+  .quickInfoBodyValue {
+    margin-left: 15px;
+    color: #101737;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .quickInfoInfo {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+  }
+  .quickInfoIcons {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+  }
+  .quickInfoIcon {
+    margin-right: 30px;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+  }
+  .quickInfoShare {
+    background-color: #fff;
+    border-radius: 8px 8px 0 0;
+    height: 50px;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    justify-content: space-around;
+  }
+  .quickInfoS {
+    padding: 10px 20px;
+    height: 100%;
+    display: inline-block;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .quickInfoBodyMeta {
+    width: 100%;
+  }
+  .quickInfoBodyMetaItem {
+    width: 20px;
+  }
+  .quickInfoBodyMetaItem p {
+    margin-left: 1rem;
+  }
+  a,
+  a:focus,
+  a:hover {
+    text-decoration: none;
+  }
+  a {
+    color: #519fff;
+    transition: 0.3s;
+  }
+  .detailWrapper {
+    position: relative;
+    padding: 80px 0;
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    margin: 0;
+  }
+  .detailOwerview {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+  }
+  
