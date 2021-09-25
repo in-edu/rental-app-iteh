@@ -20,6 +20,8 @@ function HomeDetail({ match }) {
     (state) => state.apartmentsReducer
   ).likedApartments;
   console.log(likedApartments);
+  const currentRate = useSelector(state=>state.currencyReducer.rate);
+  const currentCurrency = useSelector(state=>state.currencyReducer.current);
   useEffect(() => {
     apartmentServices
       .getOneApartment(id)
@@ -54,7 +56,7 @@ function HomeDetail({ match }) {
           <div className="quickInfoBody">
             <div className="quickInfoInfo">
               <span> For {apartment.category} </span>
-              <h3>${apartment.price}</h3>
+              <h3>{`${currentRate*Number(apartment.price)} ${currentCurrency}`}</h3>
               <span>{apartment.street} </span>
             </div>
           </div>

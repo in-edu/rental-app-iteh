@@ -11,6 +11,8 @@ const LikedHomes = (props) => {
   const likedHomes = useSelector(
     (state) => state.apartmentsReducer
   ).likedApartments;
+  const currentRate = useSelector(state=>state.currencyReducer.rate);
+  const currentCurrency = useSelector(state=>state.currencyReducer.current);
   if (token !== "") {
     return (
       <section className="interested">
@@ -26,7 +28,7 @@ const LikedHomes = (props) => {
                   <div>
                     <h4>{home.name}</h4>
                     <div style={{ display: "contents" }}>
-                      <p>${home.price}</p>
+                      <p>{`${currentRate*Number(home.price)} ${currentCurrency}`}</p>
                       <img
                         src="http://localhost:3000/images/close.png"
                         alt="close"

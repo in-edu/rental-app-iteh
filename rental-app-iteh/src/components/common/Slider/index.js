@@ -10,16 +10,18 @@ const Slider = (props) => {
   const homes = useSelector((state) => state.apartmentsReducer).apartments;
   //probles homes null jer se ne ucitava
   //trebalo bi svi apartmani da se ucitavaju na pocetku
-  let likedHome;
+  // let likedHome;
+  const [likedHome,setLikedHome] = useState(null);
   useEffect(() => {
     apartmentServices
       .getOneApartment(props.home_id)
-      .then((response) => (likedHome = response.data));
+      .then((response) => (response[0] ? setLikedHome(response[0]) : console.log('Greska Slider')));
   }, []);
+  console.log("Slider",likedHome);
 
-  if (homes !== null) {
-    likedHome = homes.filter((one) => one.id === props.home_id)[0];
-  }
+  // if (homes !== null) {
+  //   likedHome = homes.find((one) => one.id === props.home_id);
+  // }
 
   const nextSlide = () => {
     if (likedHome) {
@@ -38,7 +40,7 @@ const Slider = (props) => {
         <FaChevronLeft className="leftArrow" onClick={prevSlide} />
         <FaChevronRight className="rightArrow" onClick={nextSlide} />
         {likedHome &&
-          likedHome.images.length > 0 &&
+          likedHome.images.length > 0  ?  
           likedHome.images.map((slide, index) => {
             return (
               <Slide index={index} key={index}>
@@ -50,7 +52,7 @@ const Slider = (props) => {
                 )}
               </Slide>
             );
-          })}
+          }):(<img src="https://i.stack.imgur.com/y9DpT.jpg" alt="no-images"/>)}
       </SlideContent>
     </Wrapper>
   );

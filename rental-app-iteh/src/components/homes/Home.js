@@ -22,6 +22,8 @@ const Home = (props) => {
   const [open, setOpen] = React.useState(false);
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const currentRate = useSelector(state=>state.currencyReducer.rate);
+  const currentCurrency = useSelector(state=>state.currencyReducer.current);
 
   function editHome(id) {
     props.history.push("/form-home/" + id);
@@ -41,7 +43,7 @@ const Home = (props) => {
         <div className="apartment-info">
           <h4>{name}</h4>
           <p>{props.home1.category}</p>
-          <h4 className="apartment-price">${price}</h4>
+          <h4 className="apartment-price">{`${currentRate*Number(price)} ${currentCurrency}`}</h4>
         </div>
         <div className="apartment-contact">
           <p>{street}</p>

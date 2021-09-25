@@ -203,7 +203,6 @@ function FormHome({ history, match }) {
                 <Form.Control
                   ref={nameRef}
                   type="textarea"
-                  value="Homeeeer"
                   required
                   placeholder="Home's Name"
                 ></Form.Control>
@@ -215,9 +214,8 @@ function FormHome({ history, match }) {
                   <Form.Control
                     ref={streetRef}
                     type="textarea"
-                    value="Margeee"
                     required
-                    placeholder="Street"
+                    placeholder=""
                   ></Form.Control>
                 </FormGroup>
                 <br />
@@ -226,7 +224,6 @@ function FormHome({ history, match }) {
                   <Form.Control
                     ref={cityRef}
                     type="textarea"
-                    value="Lisaaa"
                     required
                     placeholder="City"
                   ></Form.Control>
@@ -242,7 +239,6 @@ function FormHome({ history, match }) {
                     className="price-number"
                     type="number"
                     min="0"
-                    value="23"
                     required
                     placeholder="Price"
                   ></Form.Control>
@@ -270,7 +266,6 @@ function FormHome({ history, match }) {
                     type="number"
                     min="0"
                     step="0.01"
-                    value="100"
                     required
                     placeholder="Square Footage"
                   ></Form.Control>
@@ -282,7 +277,6 @@ function FormHome({ history, match }) {
                     className="price-number"
                     type="number"
                     min="0"
-                    value="100"
                     required
                     placeholder="Number of Rooms"
                   ></Form.Control>
@@ -294,7 +288,6 @@ function FormHome({ history, match }) {
                     className="price-number"
                     type="number"
                     min="0"
-                    value="100"
                     required
                     placeholder="Parking Spaces"
                   ></Form.Control>
@@ -307,7 +300,6 @@ function FormHome({ history, match }) {
                   ref={infoRef}
                   as="textarea"
                   rows={4}
-                  value="Baaart"
                   required
                   placeholder="About home"
                 ></Form.Control>

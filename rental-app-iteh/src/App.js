@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Signup from "./components/Signup";
-import { Switch, Route, Router } from "react-router-dom";
+import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import Login from "./components/Login";
 import Homepage from "./components/homepage/Homepage";
 import FormHome from "./components/FormHome";
@@ -15,6 +15,10 @@ import { getLoggedUser } from "./actions/user";
 import Navbar from "./components/common/Navbar";
 import { ADD_TO_ALL } from "./actions/types";
 import apartmentService from "./services/apartment.services";
+import { setCurrentWeather } from "./actions/weather";
+import { getUSDCurrencyRates } from "./services/currency.service";
+import { getCurrentWeather } from "./services/weather.service";
+import { setCurrencyRates } from "./actions/currency";
 
 function App() {
   const dispatch = useDispatch();
@@ -43,6 +47,12 @@ function App() {
     history.listen((location) => {
       dispatch(clearMessage()); // clear message when changing location
     });
+    getCurrentWeather()
+      .then((response) => dispatch(setCurrentWeather(response)))
+      .catch((error) => console.log("weather error", error));
+    getUSDCurrencyRates()
+      .then((response) => dispatch(setCurrencyRates(response.rates)))
+      .catch((error) => console.log("weather error", error));
   }, [dispatch]);
 
   const logOutD = () => {
@@ -52,7 +62,7 @@ function App() {
   };
 
   return (
-    <Router history={history}>
+    <Router>
       <Navbar logout={logOutD} history={history} />
       <Switch>
         <PrivateRoute

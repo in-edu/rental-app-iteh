@@ -21,6 +21,8 @@ import {
   deleteLikedApartment,
 } from "../../../actions/apartments";
 import apartmentServices from "../../../services/apartment.services";
+import { Weather } from "../../Weather";
+import { CurrencySelector } from "../../CurrencySelector";
 
 const Navbar = (props) => {
   const { isLoggedIn } = useSelector((state) => state.authReducer);
@@ -36,6 +38,9 @@ const Navbar = (props) => {
   const dispatch = useDispatch();
   const [click, setClick] = useState(false);
   const [open, setOpen] = useState(false);
+
+  const currentRate = useSelector(state=>state.currencyReducer.rate);
+  const currentCurrency = useSelector(state=>state.currencyReducer.current);
   const handleClick = () => setClick(!click);
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -76,14 +81,18 @@ const Navbar = (props) => {
         console.log(error);
       });
   }
+  console.log(likedHomes);
   return (
     <>
       <Nav scrolled={scrollPosition}>
         <NavbarContainer>
           <NavbarLogo to="/">rent</NavbarLogo>
+          <Weather/>
+          <CurrencySelector />
           <MobileIcon onClick={handleClick}>
             {click ? <AiOutlineClose /> : <FaBars />}
           </MobileIcon>
+
           <NavMenu onClick={handleClick} click={click}>
             <NavItem>
               <NavLinks onClick={closeMenu} to="/">
@@ -117,7 +126,7 @@ const Navbar = (props) => {
             )}
             {!isLoggedIn && (
               <NavItem>
-                <NavLinks to="/signup">Singup</NavLinks>
+                <NavLinks to="/signup">SignUp</NavLinks>
               </NavItem>
             )}
           </NavMenu>
@@ -161,7 +170,7 @@ const Navbar = (props) => {
             likedHomes.map((home, index) => {
               return (
                 <article key={index} className="in_apart">
-                  {home && home.images && (
+                  {home && home.images && home.images.length >0 &&(
                     <img
                       src={
                         process.env.REACT_APP_BASE_URL_IMAGE +
@@ -173,7 +182,7 @@ const Navbar = (props) => {
                   <div>
                     <h4>{home.name}</h4>
                     <div style={{ display: "contents" }}>
-                      <p>${home.price}</p>
+                    <p>{`${currentRate*Number(home.price)} ${currentCurrency}`}</p>
                       <img
                         src="http://localhost:3000/images/close.png"
                         alt="close"
